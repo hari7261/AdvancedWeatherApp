@@ -8,7 +8,7 @@ const WeatherNews = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
 
-    const apiKey = '87367266557c4ec3828ec58ec54fde10'; // Replace with your actual API key
+    const apiKey = ''; // Replace with your actual API key
     const newsApiUrl = 'https://newsapi.org/v2/everything';
 
     const fetchArticles = async (query) => {

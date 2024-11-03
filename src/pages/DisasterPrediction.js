@@ -33,7 +33,7 @@ const DisasterPrediction = () => {
     const [loading, setLoading] = useState(false);
     const [activeTab, setActiveTab] = useState('alerts');
 
-    const API_KEY = '2b3379be1eceaf66aa7757269eb74685';
+    const API_KEY = '';
 
     const handleSearch = async (e) => {
         e.preventDefault();

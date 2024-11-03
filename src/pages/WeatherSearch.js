@@ -7,7 +7,7 @@ const WeatherSearch = () => {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const API_KEY = '2b3379be1eceaf66aa7757269eb74685'; // Replace with your actual OpenWeather API key
+    const API_KEY = ''; // Replace with your actual OpenWeather API key
 
     const getWeatherIcon = (weatherCode) => {
         // Map weather codes to emoji as placeholder icons
