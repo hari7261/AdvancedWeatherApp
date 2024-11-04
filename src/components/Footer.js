@@ -33,7 +33,13 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} WeatherAI. All rights reserved.
           </p>
           <p className="text-gray-500">
-            Built With Love By Hariom.
+            Built With Love By
+            <a
+              href="https://hariompandit.me"
+              className="text-cyan-400 animate-pulse"
+            >
+              Hariom
+            </a>.
           </p>
         </div>
       </div>

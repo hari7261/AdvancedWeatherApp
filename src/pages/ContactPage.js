@@ -62,21 +62,21 @@ export default function ContactPage() {
                                     <MapPin className="text-blue-400" />
                                     <div>
                                         <h3 className="font-semibold">Our Location</h3>
-                                        <p className="text-gray-400">123 Futuristic Lane, Tech City</p>
+                                        <p className="text-gray-400">Excel Engineering College, Komarapalayam, Tamilnadu</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-4">
                                     <Phone className="text-blue-400" />
                                     <div>
                                         <h3 className="font-semibold">Phone</h3>
-                                        <p className="text-gray-400">(123) 456-7890</p>
+                                        <p className="text-gray-400">(+91) 7261033994</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center space-x-4">
                                     <Mail className="text-blue-400" />
                                     <div>
                                         <h3 className="font-semibold">Email</h3>
-                                        <p className="text-gray-400">support@weatherapp.com</p>
+                                        <p className="text-gray-400">hariompandit9999@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                                 <a href="https://facebook.com" className="hover:text-blue-400 transition-colors">
                                     <Facebook />
                                 </a>
-                                <a href="https://twitter.com" className="hover:text-blue-400 transition-colors">
+                                <a href="https://twitter.com/Hari_Om_Pandit" className="hover:text-blue-400 transition-colors">
                                     <Twitter />
                                 </a>
                                 <a href="https://instagram.com" className="hover:text-blue-400 transition-colors">

@@ -61,13 +61,12 @@ const ServicesPage = () => {
                         description: 'Customized forecasts to support farmers with insights on rainfall, frost, and humidity.',
                     },
                 ].map((service, index) => (
-                    <div
-                        key={index}
-                        className="bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-2xl p-6 text-center transform transition-all duration-500 hover:scale-105"
-                    >
-                        <service.icon className="w-12 h-12 text-blue-500 mx-auto mb-4 animate-pulse" />
-                        <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                        <p className="text-gray-300">{service.description}</p>
+                    <div key={index} className="p-0.5 rounded-2xl border border-gray-700">
+                        <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-2xl p-6 text-center transform transition-all duration-500 hover:scale-105">
+                            <service.icon className="w-12 h-12 text-blue-500 mx-auto mb-4 animate-pulse" />
+                            <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                            <p className="text-gray-300">{service.description}</p>
+                        </div>
                     </div>
                 ))}
             </div>

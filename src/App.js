@@ -12,6 +12,7 @@ import ContactPage from './pages/ContactPage';
 import ChartPage from './pages/ChartPage';
 import Info from './pages/Info';
 import WeatherNews from './pages/WeatherNews';
+import TenDayForecast from './pages/TenDayForecast';
 
 // Navigation Component
 const Navigation = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
@@ -25,8 +26,8 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
                 to={to}
                 onClick={() => setIsMenuOpen(false)}
                 className={`block px-4 py-2 text-sm transition-all duration-300
-                    ${isActive ? 'text-blue-400' : 'text-gray-300 hover:text-blue-400'}
-                    ${isActive ? 'bg-blue-500/10' : 'hover:bg-blue-500/5'}
+                    ${isActive ? 'text-sky-300' : 'text-gray-300 hover:text-sky-300'}
+                    ${isActive ? 'bg-sky-500/10' : 'hover:bg-sky-500/5'}
                     rounded-lg`}
             >
                 {children}
@@ -35,7 +36,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
     };
 
     return (
-        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
+        <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/70 backdrop-blur-lg shadow-lg' : 'bg-black/50 backdrop-blur-md'
             }`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
@@ -57,6 +58,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
                         <NavLink to="/services">Services</NavLink>
                         <NavLink to="/weather-search">Current Weather</NavLink>
                         <NavLink to="/5-day-forecast">5-Day Forecast</NavLink>
+                        <NavLink to="/TenDayForecast">10-Day Forecast</NavLink>
                         <NavLink to="/disaster-prediction">Disaster Prediction</NavLink>
                         <NavLink to="/chart">Charts</NavLink>
                         <NavLink to="/weather-news">Weather News</NavLink>
@@ -84,6 +86,7 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen, scrolled }) => {
                         <NavLink to="/services">Services</NavLink>
                         <NavLink to="/weather-search">Current Weather</NavLink>
                         <NavLink to="/5-day-forecast">5-Day Forecast</NavLink>
+                        <NavLink to="/TenDayForecast">10-Day Forecast</NavLink>
                         <NavLink to="/disaster-prediction">Disaster Prediction</NavLink>
                         <NavLink to="/chart">Charts</NavLink>
                         <NavLink to="/weather-news">Weather News</NavLink>
@@ -133,6 +136,7 @@ function App() {
                         <Route path="/services" element={<ServicesPage />} />
                         <Route path="/weather-search" element={<WeatherSearch />} />
                         <Route path="/5-day-forecast" element={<FiveDayForecast />} />
+                        <Route path="/TenDayForecast" element={<TenDayForecast />} />
                         <Route path="/disaster-prediction" element={<DisasterPrediction />} />
                         <Route path="/chart" element={<ChartPage />} />
                         <Route path="/weather-news" element={<WeatherNews />} />

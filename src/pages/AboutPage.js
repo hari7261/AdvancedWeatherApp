@@ -1,6 +1,6 @@
 import React from 'react';
 import { Shield, Zap, Globe } from 'lucide-react';
-import Hariom from '../images/avatar.png'; // Adjust the path as needed
+import Hariom from '../images/avatar.png';
 import Himanshu from '../images/avatar.png'; 
 import Dharani from '../images/avatar.png'; 
 import Ashwin from '../images/avatar.png'; 
@@ -32,18 +32,20 @@ const AboutPage = () => {
                 <h2 className="text-4xl font-bold text-center mb-10">Technology Behind the Forecasts</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
-                        { icon: Globe, title: "Big Data", description: "Collecting data from satellites, sensors, and global weather stations." },
-                        { icon: Zap, title: "AI-Powered Modeling", description: "Our AI models analyze patterns for high-accuracy predictions." },
-                        { icon: Shield, title: "Military-Grade Security", description: "We prioritize user privacy and data security." }
-                    ].map((tech, index) => (
-                        <div
-                            key={index}
-                            className="bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-2xl p-6 transform transition-all duration-1000 hover:scale-105"
-                        >
-                            <tech.icon className="w-12 h-12 text-blue-500 mb-4" />
-                            <h3 className="text-2xl font-bold mb-2">{tech.title}</h3>
-                            <p className="text-gray-300">{tech.description}</p>
-                        </div>
+                            { icon: Globe, title: "Big Data", description: "Collecting data from satellites, sensors, and global weather stations." },
+                            { icon: Zap, title: "AI-Powered Modeling", description: "Our AI models analyze patterns for high-accuracy predictions." },
+                            { icon: Shield, title: "Military-Grade Security", description: "We prioritize user privacy and data security." }
+                        ].map((tech, index) => (
+                            <div
+                                key={index}
+                                className="p-0.5 rounded-2xl border border-gray-700 flex-1"
+                            >
+                                <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg rounded-2xl p-6 transition-all duration-500 hover:scale-105 h-full flex flex-col items-center justify-center">
+                                    <tech.icon className="w-12 h-12 text-blue-500 mb-4" />
+                                    <h3 className="text-2xl font-bold mb-2 text-center">{tech.title}</h3>
+                                    <p className="text-gray-300 text-center">{tech.description}</p>
+                                </div>
+                            </div>
                     ))}
                 </div>
             </section>
@@ -55,21 +57,22 @@ const AboutPage = () => {
                     Experience hyper-local, AI-driven forecasts with real-time updates and unparalleled accuracy. Here’s why WeatherAI is different.
                 </p>
                 <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-                    <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg p-6 rounded-2xl w-full md:w-1/3">
-                        <h3 className="text-xl font-bold mb-2">Hyper-Local Forecasts</h3>
-                        <p className="text-gray-300">Precision weather forecasts tailored to your exact location.</p>
-                    </div>
-                    <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg p-6 rounded-2xl w-full md:w-1/3">
-                        <h3 className="text-xl font-bold mb-2">Real-Time Updates</h3>
-                        <p className="text-gray-300">Stay ahead with continuous updates, every second counts.</p>
-                    </div>
-                    <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg p-6 rounded-2xl w-full md:w-1/3">
-                        <h3 className="text-xl font-bold mb-2">Data Privacy First</h3>
-                        <p className="text-gray-300">Your data remains private with our military-grade encryption.</p>
-                    </div>
+                    {[
+                        { title: "Hyper-Local Forecasts", description: "Precision weather forecasts tailored to your exact location." },
+                        { title: "Real-Time Updates", description: "Stay ahead with continuous updates, every second counts." },
+                        { title: "Data Privacy First", description: "Your data remains private with our military-grade encryption." }
+                    ].map((feature, index) => (
+                        <div key={index} className="p-0.5 rounded-2xl border border-gray-700">
+                            <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg p-6 rounded-2xl transition-all hover:scale-105">
+                                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
+                                <p className="text-gray-300">{feature.description}</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </section>
 
+            {/* Meet the Team Section */}
             <section className="container mx-auto px-6 py-16 text-center">
                 <h2 className="text-4xl font-bold mb-6">Meet the Team</h2>
                 <p className="text-gray-300 max-w-3xl mx-auto text-lg mb-10">
@@ -78,17 +81,18 @@ const AboutPage = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     {[
                         { name: "Hariom Kumar", title: "Software Developer", image: Hariom },
-                        { name: "Himanshu kumar", title: "AI Researcher", image: Himanshu },
+                        { name: "Himanshu Kumar", title: "AI Researcher", image: Himanshu },
                         { name: "Dharani", title: "Data Scientist", image: Dharani },
                         { name: "Arullaln", title: "Frontend Developer", image: arullaln },
-                        { name: "Ujjwal kaushik", title: "Back-end Developer", image: Ujjwal },
-                        { name: "Ashwin sundar", title: "Product Manager", image: Ashwin },
+                        { name: "Ujjwal Kaushik", title: "Back-end Developer", image: Ujjwal },
+                        { name: "Ashwin Sundar", title: "Product Manager", image: Ashwin },
                     ].map((team, index) => (
-                        <div key={index} className="bg-gray-900 bg-opacity-50 backdrop-blur-lg p-6 rounded-2xl">
-                            {/* Image Section */}
-                            <img src={team.image} alt={team.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-                            <h3 className="text-xl font-bold mb-2">{team.name}</h3>
-                            <p className="text-gray-300">{team.title}</p>
+                        <div key={index} className="p-0.5 rounded-2xl border border-gray-700">
+                            <div className="bg-gray-900 bg-opacity-50 backdrop-blur-lg p-6 rounded-2xl">
+                                <img src={team.image} alt={team.name} className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+                                <h3 className="text-xl font-bold mb-2">{team.name}</h3>
+                                <p className="text-gray-300">{team.title}</p>
+                            </div>
                         </div>
                     ))}
                 </div>

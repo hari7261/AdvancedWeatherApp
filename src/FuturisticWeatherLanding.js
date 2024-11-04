@@ -163,7 +163,7 @@ const FuturisticWeatherLanding = () => {
         }
         
         .animate-scroll {
-          animation: scroll 35s linear infinite;
+          animation: scroll 30s linear infinite;
           white-space: nowrap;
         }
       `}</style>

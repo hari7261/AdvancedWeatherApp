@@ -12,7 +12,7 @@ export default function WeatherDashboard() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const OPEN_WEATHER_API_KEY = ''; // Replace with your API key
+    const OPEN_WEATHER_API_KEY = ''; 
 
     const fetchWeatherData = async (selectedCity) => {
         try {

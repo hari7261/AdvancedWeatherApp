@@ -7,23 +7,27 @@ const WeatherNews = () => {
     const [articles, setArticles] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const apiKey = ''; // Replace with your actual API key
+    const apiKey = ''; // Replace with your NewsAPI key
     const newsApiUrl = 'https://newsapi.org/v2/everything';
 
     const fetchArticles = async (query) => {
         setLoading(true);
+        setError(null); // Reset error before a new request
         try {
             const response = await axios.get(newsApiUrl, {
                 params: {
-                    q: query,
+                    q: query || 'weather', // Default search term is "weather"
                     apiKey: apiKey,
                     language: 'en',
+                    sortBy: 'publishedAt' // Sort results by publication date
                 },
             });
-            setArticles(response.data.articles);
+            setArticles(response.data.articles); // Store articles in state
         } catch (error) {
             console.error('Error fetching articles:', error);
+            setError('Could not fetch articles. Please try again later.');
         } finally {
             setLoading(false);
         }
@@ -35,58 +39,64 @@ const WeatherNews = () => {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        fetchArticles(searchTerm || 'weather');
+        fetchArticles(searchTerm || 'weather'); // Search by input or default "weather"
     };
 
     return (
-        <div className="min-h-screen bg-slate-900 text-white relative overflow-hidden">
-            <div className="absolute inset-0 overflow-hidden">
-                {[...Array(20)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="absolute rounded-full mix-blend-screen filter blur-xl animate-pulse"
-                        style={{
-                            backgroundColor: 'rgba(59, 130, 246, 0.15)',
-                            width: Math.random() * 200 + 50 + 'px',
-                            height: Math.random() * 200 + 50 + 'px',
-                            left: Math.random() * 100 + '%',
-                            top: Math.random() * 100 + '%',
-                            animationDelay: Math.random() * 2 + 's',
-                            animationDuration: Math.random() * 3 + 2 + 's',
-                        }}
-                    />
-                ))}
-            </div>
-
-            <div className="relative max-w-2xl mx-auto p-8 space-y-10 bg-slate-800/50 backdrop-blur-lg rounded-lg shadow-lg">
-                <h1 className="text-3xl font-bold text-center mb-4">World Weather News</h1>
-
-                <form onSubmit={handleSearch} className="mb-4">
+        <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center py-10 px-4">
+            <div className="max-w-3xl w-full space-y-6 bg-gray-800 bg-opacity-90 p-6 rounded-lg shadow-lg relative">
+                <h1 className="text-4xl font-bold text-center mb-6">Weather News</h1>
+                
+                {/* Search Form */}
+                <form onSubmit={handleSearch} className="flex space-x-3 mb-6">
                     <input
                         type="text"
-                        placeholder="Search for news..."
+                        placeholder="Search for weather news..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full p-2 rounded bg-gray-800 text-white"
+                        className="flex-1 p-3 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
-                    <button type="submit" className="mt-2 w-full p-2 bg-blue-500 rounded hover:bg-blue-600">
+                    <button
+                        type="submit"
+                        className="px-6 py-3 rounded bg-blue-500 hover:bg-blue-600 transition duration-200"
+                    >
                         Search
                     </button>
                 </form>
 
-                {loading ? (
-                    <p>Loading articles...</p>
-                ) : (
-                    <div>
-                        {articles.map((article, index) => (
-                            <div key={index} className="mb-4 p-4 border-b border-gray-700">
-                                <h2 className="text-xl font-semibold">{article.title}</h2>
-                                <p className="text-gray-300">{article.description}</p>
-                                <a href={article.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 underline">
-                                    Read more
-                                </a>
-                            </div>
-                        ))}
+                {/* Loading State */}
+                {loading && <p className="text-center text-blue-400">Loading articles...</p>}
+
+                {/* Error State */}
+                {error && <p className="text-center text-red-500">{error}</p>}
+
+                {/* Articles Display */}
+                {!loading && !error && (
+                    <div className="space-y-4">
+                        {articles.length === 0 ? (
+                            <p className="text-center text-gray-400">No weather news found.</p>
+                        ) : (
+                            articles.map((article, index) => (
+                                <div
+                                    key={index}
+                                    className="p-4 bg-gray-700 rounded-lg shadow-md hover:bg-gray-600 transition duration-200"
+                                >
+                                    <h2 className="text-xl font-semibold mb-2">{article.title}</h2>
+                                    <p className="text-gray-300 mb-4">{article.description}</p>
+                                    <p className="text-gray-400 text-sm">
+                                        Published on: {new Date(article.publishedAt).toLocaleString()}
+                                    </p>
+                                    <a
+                                        href={article.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-blue-400 hover:underline"
+                                    >
+                                        Read more
+                                    </a>
+                                </div>
+                            ))
+                        )}
                     </div>
                 )}
             </div>
