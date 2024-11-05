@@ -1,11 +1,11 @@
 import React from 'react';
 import { Shield, Zap, Globe } from 'lucide-react';
 import Hariom from '../images/avatar.png';
-import Himanshu from '../images/avatar.png'; 
-import Dharani from '../images/avatar.png'; 
-import Ashwin from '../images/avatar.png'; 
-import Ujjwal from '../images/avatar.png';
-import arullaln from '../images/avatar.png';
+import Himanshu from '../images/image.png'; 
+import Dharani from '../images/dharni.webp'; 
+import Ashwin from '../images/sketch1730797342392 (1).jpeg.jpg'; 
+import Ujjwal from '../images/Screenshot 2024-11-05 205337.png';
+import arullaln from '../images/arullaan.jpg';
 
 const AboutPage = () => {
     return (
