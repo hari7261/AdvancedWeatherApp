@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa'; // Import React Icons
+import { FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa'; // Import React Icons
 
 const Footer = () => {
   return (
@@ -12,16 +12,13 @@ const Footer = () => {
             <p className="text-gray-300">Bringing the future of weather forecasting to your fingertips.</p>
           </div>
           <div className="flex space-x-6">
-            <a href="https://facebook.com" className="hover:text-blue-500 transition-colors" aria-label="Facebook">
-              <FaFacebookF className="w-6 h-6 animate-bounce" />
-            </a>
-            <a href="https://twitter.com" className="hover:text-blue-500 transition-colors" aria-label="Twitter">
+            <a href="https://twitter.com/Hari_Om_Pandit" className="hover:text-blue-500 transition-colors" aria-label="Twitter">
               <FaTwitter className="w-6 h-6 animate-bounce" />
             </a>
-            <a href="https://instagram.com" className="hover:text-blue-500 transition-colors" aria-label="Instagram">
+            <a href="https://instagram.com/mehari_03" className="hover:text-blue-500 transition-colors" aria-label="Instagram">
               <FaInstagram className="w-6 h-6 animate-bounce" />
             </a>
-            <a href="https://github.com" className="hover:text-blue-500 transition-colors" aria-label="GitHub">
+            <a href="https://github.com/hari7261" className="hover:text-blue-500 transition-colors" aria-label="GitHub">
               <FaGithub className="w-6 h-6 animate-bounce" />
             </a>
           </div>
